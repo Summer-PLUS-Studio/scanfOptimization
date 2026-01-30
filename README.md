@@ -71,7 +71,7 @@ int main() {
 ### Buffer Size
 ```c
 #define YSCANF_BUFFER_SIZE (1 << 20)  // 1MB buffer
-#include "yscanf_optimized.h"
+#include "yscanf.h"
 ```
 
 ### Custom Behavior
@@ -95,7 +95,7 @@ The library provides macros for customization:
 - Returns `-1` for unsupported format specifiers
 - Graceful handling of malformed input
 
-## Comparison with Original
+## Updation
 
 | Aspect | Original | Optimized |
 |--------|----------|-----------|
