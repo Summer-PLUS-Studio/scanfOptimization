@@ -12,7 +12,6 @@
 
 /* Include both versions for comparison */
 #include "yscanf.h"
-#include "yscanf_optimized.h"
 
 #define BENCHMARK_SIZE 1000000
 #define ITERATIONS 10
