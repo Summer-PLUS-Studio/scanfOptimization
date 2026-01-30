@@ -11,7 +11,7 @@
 #include <limits.h>
 #include <float.h>
 
-#include "yscanf_optimized.h"
+#include "yscanf.h"
 
 /* Test result tracking */
 static int tests_run = 0;
