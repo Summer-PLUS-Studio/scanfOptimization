@@ -29,7 +29,7 @@ YScanF is a high-performance, buffered input parsing library designed as a faste
 ## Usage Example
 
 ```c
-#include "yscanf_optimized.h"
+#include "yscanf.h"
 
 int main() {
     int n;
