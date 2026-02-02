@@ -16,6 +16,7 @@
 #include <ctype.h>
 #include <stdint.h>
 #include <string.h>
+#include <limits.h>
 
 /* ============================================================================
  * CONFIGURATION MACROS
@@ -475,3 +476,4 @@ static inline int yscanf(const char *fmt, ...)
  *     return 0;
  * }
  * ============================================================================ */
+
