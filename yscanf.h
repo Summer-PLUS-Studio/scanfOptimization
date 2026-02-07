@@ -43,14 +43,21 @@
 static char ybuf[YSCANF_BUFFER_SIZE];
 static char *yptr = ybuf;
 static char *yend = ybuf;
-
+static int yeof = 0;
 /**
  * @brief Refill the input buffer from stdin
  * @note Uses hot/cold partitioning for better cache performance
  */
 static inline void yrefill(void)
 {
+    if (yeof) return;
+
     size_t len = fread(ybuf, 1, sizeof(ybuf), stdin);
+    if (len == 0) {
+        yeof = 1;
+        return;
+    }
+
     yptr = ybuf;
     yend = ybuf + len;
 }
@@ -476,4 +483,5 @@ static inline int yscanf(const char *fmt, ...)
  *     return 0;
  * }
  * ============================================================================ */
+
 
