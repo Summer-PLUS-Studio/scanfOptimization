@@ -97,14 +97,19 @@ The library provides macros for customization:
 
 ## Updation
 
-| Aspect | Original | Optimized |
-|--------|----------|-----------|
-| Overflow Detection | ❌ | ✅ |
-| Branch Prediction | ❌ | ✅ |
-| Documentation | Basic | Comprehensive |
-| Error Handling | Minimal | Robust |
-| Performance | Fast | Faster |
-| Code Structure | Monolithic | Modular |
+| Aspect | 1.0 (Original) | 2.0 (Optimized) | 3.0 (Robust IO) |
+|--------|----------------|-----------------|-----------------|
+| Overflow Detection | ❌ | ✅ | ✅ |
+| Branch Prediction | ❌ | ✅ | ✅ |
+| Documentation | Basic | Comprehensive | Comprehensive |
+| Error Handling | Minimal | Improved | Robust (EOF-aware) |
+| Performance | Fast | Faster | Faster |
+| Code Structure | Monolithic | Modular | Modular |
+| EOF Handling | ❌ | ❌ | ✅ |
+| Partial Input Handling | ❌ | ❌ | ✅ |
+| EOF Handling | ❌ | ❌ | ✅ |
+| API Stability | ❌ | ⚠️ | ✅ |
+
 
 ## Building and Testing
 
