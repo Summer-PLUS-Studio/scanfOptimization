@@ -2,6 +2,7 @@
  * @file yscanf3.h
  * @brief High-performance buffered input parser (EOF-correct version)
  * @author Summer PLUS Studio
+ * @email yuzhouhunter@outlook.com
  * @version 3.0
  */
 
