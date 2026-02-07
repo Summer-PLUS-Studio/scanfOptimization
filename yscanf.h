@@ -8,8 +8,8 @@
  * @version 2.0
  */
 
-#ifndef YSCANF_H
-#define YSCANF_H
+#ifndef YSCANF2_H
+#define YSCANF2_H
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -464,7 +464,7 @@ static inline int yscanf(const char *fmt, ...)
     return cnt;
 }
 
-#endif /* YSCANF_H */
+#endif /* YSCANF2_H */
 
 /* ============================================================================
  * USAGE EXAMPLE
@@ -483,5 +483,6 @@ static inline int yscanf(const char *fmt, ...)
  *     return 0;
  * }
  * ============================================================================ */
+
 
 
