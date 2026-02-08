@@ -158,6 +158,40 @@ static inline int yread_str_ok(char *s)
 	return 1;
 }
 
+static inline int yread_ll_ok(long long *out)
+{
+	int c,sign=1;
+	long long x=0;
+	yskip_space();
+	c=ypeek();
+	if(c==EOF)return 0;
+	if(c=='+'||c=='-'){
+		sign=(c=='-')?-1:1;
+		yget();
+	}
+	c=ypeek();
+	if(c<'0'||c>'9')return 0;
+	while((c=ypeek())>='0'&&c<='9'){
+		x=x*10+(yget()-'0');
+	}
+	*out=x*sign;
+	return 1;
+}
+
+static inline int yread_ull_ok(unsigned long long *out)
+{
+	int c;
+	unsigned long long x=0;
+	yskip_space();
+	c=ypeek();
+	if(c==EOF||c<'0'||c>'9')return 0;
+	while((c=ypeek())>='0'&&c<='9'){
+		x=x*10+(yget()-'0');
+	}
+	*out=x;
+	return 1;
+}
+
 /* ========================= YSCANF ========================= */
 
 static inline int yscanf(const char *fmt,...)
@@ -188,6 +222,35 @@ static inline int yscanf(const char *fmt,...)
 			if(!yread_uint_ok(p)){va_end(ap);return cnt?cnt:EOF;}
 			cnt++;
 		}
+		else if(*fmt=='l'){
+			fmt++;
+			if(*fmt=='l'){
+				fmt++;
+				if(*fmt=='d'){
+					long long *p=va_arg(ap,long long*);
+					if(!yread_ll_ok(p)){va_end(ap);return cnt?cnt:EOF;}
+					cnt++;
+				}
+				else if(*fmt=='u'){
+					unsigned long long *p=va_arg(ap,unsigned long long*);
+					if(!yread_ull_ok(p)){va_end(ap);return cnt?cnt:EOF;}
+					cnt++;
+				}
+				else{
+					va_end(ap);
+					return -1;
+				}
+			}
+			else{
+				va_end(ap);
+				return -1;
+			}
+		}
+		else if(*fmt=='f'||*fmt=='e'||*fmt=='g'){
+			double *p=va_arg(ap,double*);
+			if(!yread_double_ok(p)){va_end(ap);return cnt?cnt:EOF;}
+			cnt++;
+		}
 		else if(*fmt=='s'){
 			char *p=va_arg(ap,char*);
 			if(!yread_str_ok(p)){va_end(ap);return cnt?cnt:EOF;}
@@ -198,11 +261,6 @@ static inline int yscanf(const char *fmt,...)
 			int c=yget();
 			if(c==EOF){va_end(ap);return cnt?cnt:EOF;}
 			*p=(char)c;
-			cnt++;
-		}
-		else if(*fmt=='f'||*fmt=='g'||*fmt=='e'){
-			double *p=va_arg(ap,double*);
-			if(!yread_double_ok(p)){va_end(ap);return cnt?cnt:EOF;}
 			cnt++;
 		}
 		else{
