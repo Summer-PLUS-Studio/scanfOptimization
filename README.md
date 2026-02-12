@@ -95,21 +95,25 @@ The library provides macros for customization:
 - Returns `-1` for unsupported format specifiers
 - Graceful handling of malformed input
 
-## Updation
+## Updation (Integrated into yscanf3.h)
 
-| Aspect | 1.0 (Original) | 2.0 (Optimized) | 3.0 (Robust IO) |
-|--------|----------------|-----------------|-----------------|
+| Aspect | 1.0 (Original) | 2.0 (Optimized Core) | 3.0 (Robust IO Integrated) |
+|--------|----------------|----------------------|----------------------------|
+| Buffered Input | ✅ | ✅ | ✅ |
 | Overflow Detection | ❌ | ✅ | ✅ |
-| Branch Prediction | ❌ | ✅ | ✅ |
-| Documentation | Basic | Comprehensive | Comprehensive |
-| Error Handling | Minimal | Improved | Robust (EOF-aware) |
-| Performance | Fast | Faster | Faster |
-| Code Structure | Monolithic | Modular | Modular |
-| EOF Handling | ❌ | ❌ | ✅ |
+| Branch Prediction Optimization | ❌ | ✅ | ✅ |
+| Modular Design | ❌ | ✅ | ✅ |
+| EOF Handling | ❌ | ❌ | ✅ (fully safe) |
 | Partial Input Handling | ❌ | ❌ | ✅ |
-| EOF Handling | ❌ | ❌ | ✅ |
-| API Stability | ❌ | ⚠️ | ✅ |
-
+| Line-Based Input | ❌ | ❌ | ✅ (`ygetline` / `yread_line`) |
+| Windows CRLF Support | ❌ | ❌ | ✅ |
+| Error Reporting | Minimal | Improved | Robust & predictable |
+| API Consistency | ❌ | ⚠️ | ✅ Stable |
+| Float Parsing | Basic | Improved | Scientific notation safe |
+| Memory Safety | Basic | Improved | Safe (bounded writes) |
+| Performance | Fast | Faster | Faster + safer |
+| Large Input Stability | ❌ | ⚠️ | ✅ |
+| Documentation | Basic | Comprehensive | Comprehensive |
 
 ## Building and Testing
 
