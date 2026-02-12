@@ -158,6 +158,42 @@ static inline int yread_str_ok(char *s)
 	return 1;
 }
 
+static inline int yread_line_ok(char *s,int maxlen)
+{
+	int c,len=0;
+
+	while(1){
+		c=yget();
+		if(c==EOF)return 0;
+		if(c=='\n'||c=='\r')continue;
+		while(c!=EOF&&c!='\n'&&c!='\r'){
+			if(len<maxlen-1)
+				s[len++]=(char)c;
+			c=yget();
+		}
+		if(c=='\r'&&ypeek()=='\n')
+			yget();
+		s[len]=0;
+		return 1;
+	}
+}
+
+static inline int ygetline_ok(char *s,int maxlen)
+{
+	int c,len=0;
+	c=yget();
+	if(c==EOF)return 0;
+	while(c!=EOF&&c!='\n'&&c!='\r'){
+		if(len<maxlen-1)
+			s[len++]=(char)c;
+		c=yget();
+	}
+	if(c=='\r'&&ypeek()=='\n')
+		yget();
+	s[len]=0;
+	return 1;
+}
+
 static inline int yread_ll_ok(long long *out)
 {
 	int c,sign=1;
