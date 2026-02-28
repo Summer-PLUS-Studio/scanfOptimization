@@ -113,6 +113,9 @@ The library provides macros for customization:
 | Memory Safety | Basic | Improved | Safe (bounded writes) |
 | Performance | Fast | Faster | Faster + safer |
 | Large Input Stability | ❌ | ⚠️ | ✅ |
+| C++ Stream Interface | ❌ | ❌ | ✅ (`yin` operator>>`) |
+| Namespace Encapsulation | ❌ | ❌ | ✅ (`namespace ystd`) |
+| Header-Only C++ Layer | ❌ | ❌ | ✅ |
 | Documentation | Basic | Comprehensive | Comprehensive |
 
 ## Building and Testing
