@@ -3,7 +3,7 @@
  * @file yscanf.h
  * @brief High-performance buffered input parser for competitive programming
  * @author Yalvox PLUS Studio
- * @email yuzhouhunter@outlook.com
+ * @email yalvoxplus@outlook.com
  * @warning Not fully scanf-compatible, designed for competitive programming
  * @version 2.0
  */
