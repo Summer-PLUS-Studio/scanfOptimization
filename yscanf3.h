@@ -2,7 +2,7 @@
  * @file yscanf3.h
  * @brief High-performance buffered input parser (EOF-correct version)
  * @author Yalvox PLUS Studio
- * @email yuzhouhunter@outlook.com
+ * @email yalvoxplus@outlook.com
  * @version 3.0
  */
 
